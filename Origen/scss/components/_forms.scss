@@ -1,0 +1,44 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.form-group {
+  margin-bottom: $space-md;
+
+  label {
+    display: block;
+    font-size: $fs-sm;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    margin-bottom: $space-xs;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    background: $color-bg-card;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: 0.85rem 1.2rem;
+    color: $color-text;
+    font-size: $fs-base;
+    transition: $transition-fast;
+    outline: none;
+
+    &:focus {
+      border-color: $color-accent;
+      box-shadow: 0 0 0 3px rgba($color-accent, 0.15);
+    }
+
+    &::placeholder {
+      color: rgba($color-text-muted, 0.5);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+}

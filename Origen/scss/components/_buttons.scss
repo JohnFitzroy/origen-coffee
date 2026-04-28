@@ -1,0 +1,47 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  @include btn-base;
+  padding: 0.75rem 2rem;
+  border-radius: $radius-pill;
+
+  &--primary {
+    background: $color-accent;
+    color: $color-beige-soft;
+
+    &:hover {
+      background: $color-accent-light;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba($color-accent, 0.35);
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid $color-beige;
+    color: $color-beige;
+
+    &:hover {
+      background: $color-beige;
+      color: $color-bg;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $color-accent;
+    padding-left: 0;
+    padding-right: 0;
+
+    &::after {
+      content: ' →';
+      transition: $transition-fast;
+    }
+
+    &:hover::after {
+      margin-left: 6px;
+    }
+  }
+}

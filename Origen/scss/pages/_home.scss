@@ -1,0 +1,36 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.why {
+  @include section-padding;
+  background: $color-bg-soft;
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-lg;
+    justify-content: center;
+    margin-top: $space-xl;
+  }
+
+  &__item {
+    flex: 1 1 240px;
+    max-width: 300px;
+    text-align: center;
+
+    &-icon {
+      font-size: 2.5rem;
+      margin-bottom: $space-sm;
+    }
+
+    h3 {
+      font-size: $fs-md;
+      color: $color-beige;
+      margin-bottom: $space-xs;
+    }
+  }
+}
+
+.featured {
+  @include section-padding;
+}

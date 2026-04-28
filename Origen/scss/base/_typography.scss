@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as *;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 700;
+  line-height: 1.15;
+  color: $color-beige-soft;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, $fs-3xl); }
+h2 { font-size: clamp(1.8rem, 4vw, $fs-2xl); }
+h3 { font-size: clamp(1.3rem, 3vw, $fs-xl);  }
+h4 { font-size: $fs-lg; }
+
+p {
+  font-size: $fs-base;
+  color: $color-text-muted;
+  line-height: 1.8;
+}
+
+.text-accent { color: $color-accent; }
+.text-beige  { color: $color-beige; }
+.text-muted  { color: $color-text-muted; }
+
+.label {
+  font-size: $fs-xs;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-accent;
+}
+
+.lead {
+  font-size: $fs-md;
+  color: $color-beige;
+  line-height: 1.7;
+}

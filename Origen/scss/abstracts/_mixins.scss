@@ -1,0 +1,49 @@
+@use 'variables' as *;
+
+@mixin respond-to($bp) {
+  @if $bp == sm  { @media (min-width: $bp-sm)  { @content; } }
+  @if $bp == md  { @media (min-width: $bp-md)  { @content; } }
+  @if $bp == lg  { @media (min-width: $bp-lg)  { @content; } }
+  @if $bp == xl  { @media (min-width: $bp-xl)  { @content; } }
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin overlay($opacity: 0.6) {
+  position: absolute;
+  inset: 0;
+  background: rgba($color-bg, $opacity);
+  content: '';
+}
+
+@mixin fade-up($delay: 0s, $distance: 30px) {
+  opacity: 0;
+  transform: translateY($distance);
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: $delay;
+}
+
+@mixin section-padding {
+  padding: $space-2xl $space-sm;
+  @include respond-to(md) {
+    padding: $space-2xl $space-lg;
+  }
+}
+
+@mixin btn-base {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: $fs-sm;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: $transition-base;
+  text-decoration: none;
+}

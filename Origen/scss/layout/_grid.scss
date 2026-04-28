@@ -1,0 +1,46 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-sm;
+
+  @include respond-to(md) { padding: 0 $space-lg; }
+}
+
+.grid-products {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-md;
+
+  @include respond-to(sm) { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to(lg) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.grid-featured {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-md;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+
+    .card:first-child {
+      grid-row: span 2;
+    }
+  }
+}
+
+.section {
+  @include section-padding;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto $space-xl;
+  }
+}

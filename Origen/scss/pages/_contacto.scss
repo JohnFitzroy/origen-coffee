@@ -1,0 +1,45 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.contacto {
+  @include section-padding;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-xl;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__info {
+    h2 { margin-bottom: $space-md; }
+    p { margin-bottom: $space-lg; }
+  }
+
+  &__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-sm;
+    margin-bottom: $space-md;
+
+    &-icon {
+      font-size: $fs-lg;
+      flex-shrink: 0;
+    }
+
+    h4 {
+      font-size: $fs-sm;
+      font-weight: 600;
+      color: $color-beige;
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-size: $fs-sm;
+      margin: 0;
+    }
+  }
+}

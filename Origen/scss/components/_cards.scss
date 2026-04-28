@@ -1,0 +1,59 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.card {
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: $transition-slow;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba($color-accent, 0.35);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: $transition-slow;
+
+    .card:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__body {
+    padding: $space-md;
+  }
+
+  &__label {
+    font-size: $fs-xs;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-accent;
+    margin-bottom: $space-xs;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $fs-lg;
+    color: $color-beige-soft;
+    margin-bottom: $space-xs;
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    margin-bottom: $space-sm;
+  }
+
+  &__price {
+    font-size: $fs-md;
+    font-weight: 700;
+    color: $color-beige;
+  }
+}

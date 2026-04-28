@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.menu-page {
+  @include section-padding;
+
+  &__filters {
+    display: flex;
+    gap: $space-sm;
+    flex-wrap: wrap;
+    margin-bottom: $space-xl;
+
+    button {
+      padding: 0.5rem 1.25rem;
+      border-radius: $radius-pill;
+      border: 1px solid $color-border;
+      font-size: $fs-sm;
+      color: $color-text-muted;
+      transition: $transition-fast;
+      cursor: pointer;
+      background: transparent;
+
+      &:hover,
+      &.active {
+        background: $color-accent;
+        border-color: $color-accent;
+        color: $color-beige-soft;
+      }
+    }
+  }
+}
