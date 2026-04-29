@@ -74,3 +74,25 @@
     cursor: pointer;
   }
 }
+
+// Menú móvil abierto
+.navbar__links.open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($color-bg, 0.98);
+  backdrop-filter: blur(16px);
+  align-items: center;
+  justify-content: center;
+  gap: $space-xl;
+  z-index: $z-overlay;
+
+  a {
+    font-size: $fs-xl;
+    color: $color-beige-soft;
+  }
+}

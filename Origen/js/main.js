@@ -25,3 +25,20 @@ document.querySelectorAll('.navbar__links a').forEach(link => {
     link.classList.add('active');
   }
 });
+
+// 4. Menú hamburguesa
+const burger = document.querySelector('.navbar__burger');
+const navLinks = document.querySelector('.navbar__links');
+
+burger?.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  burger.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+});
+
+// Cerrar menú al hacer click en un link
+document.querySelectorAll('.navbar__links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.textContent = '☰';
+  });
+});

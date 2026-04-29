@@ -427,6 +427,26 @@ p {
   cursor: pointer;
 }
 
+.navbar__links.open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(28, 22, 17, 0.98);
+  backdrop-filter: blur(16px);
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  z-index: 200;
+}
+.navbar__links.open a {
+  font-size: 2rem;
+  color: #F5EFE6;
+}
+
 .btn {
   display: inline-block;
   font-family: "DM Sans", "Helvetica Neue", sans-serif;
