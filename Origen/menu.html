@@ -1,175 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menú — Origen Specialty Coffee</title>
-    <meta
-      name="description"
-      content="Conocé nuestro menú de especialidad: espressos, filtrados, lácteos y más."
-    />
-    <meta property="og:title" content="Menú — Origen Specialty Coffee" />
-    <meta
-      property="og:description"
-      content="Café de origen único y métodos alternativos."
-    />
-    <meta property="og:image" content="img/og-image.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <a href="index.html" class="navbar__logo">Ori<span>gen</span></a>
-      <ul class="navbar__links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="menu.html" class="active">Menú</a></li>
-        <li><a href="historia.html">Historia</a></li>
-        <li><a href="contacto.html">Reservas</a></li>
-      </ul>
-      <a href="contacto.html" class="btn btn--primary navbar__cta">Reservar</a>
-      <button class="navbar__burger">☰</button>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú — Origen Specialty Coffee</title>
+  <meta name="description" content="Conocé nuestro menú de especialidad: espressos, filtrados, lácteos y más." />
+  <meta property="og:title" content="Menú — Origen Specialty Coffee" />
+  <meta property="og:description" content="Café de origen único y métodos alternativos." />
+  <meta property="og:image" content="img/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .card {
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .card.oculta {
+      opacity: 0;
+      transform: scale(0.92);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+    }
+    .proximamente {
+      display: none;
+      text-align: center;
+      padding: 4rem 1rem;
+      grid-column: 1 / -1;
+    }
+    .proximamente.visible {
+      display: block;
+    }
+    .proximamente h3 {
+      font-size: 1.5rem;
+      color: #E8D5B7;
+      margin-bottom: 0.5rem;
+    }
+    .proximamente p {
+      color: #A89880;
+    }
+    .proximamente .badge-pronto {
+      display: inline-block;
+      background: #C8603A;
+      color: #F5EFE6;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      animation: pulso 2s ease-in-out infinite;
+    }
+    @keyframes pulso {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
+    .grid-products {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
 
-    <!-- Hero pequeño -->
-    <section
-      style="padding: 10rem 1rem 4rem; text-align: center; background: #241d17"
-    >
-      <p class="label">Lo que preparamos</p>
-      <h1>Nuestro Menú</h1>
-      <p class="lead" style="max-width: 500px; margin: 1rem auto 0">
-        Cada bebida es preparada con precisión, usando granos frescos de origen
-        único.
-      </p>
-    </section>
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">Ori<span>gen</span></a>
+    <ul class="navbar__links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu.html" class="active">Menú</a></li>
+      <li><a href="historia.html">Historia</a></li>
+      <li><a href="contacto.html">Reservas</a></li>
+    </ul>
+    <a href="contacto.html" class="btn btn--primary navbar__cta">Reservar</a>
+    <button class="navbar__burger">☰</button>
+  </nav>
 
-    <!-- Filtros + Grilla -->
-    <section class="menu-page container">
-      <div class="menu-page__filters">
-        <button class="active">Todos</button>
-        <button>Espressos</button>
-        <button>Filtrados</button>
-        <button>Con leche</button>
-        <button>Fríos</button>
-      </div>
+  <section style="padding: 10rem 1rem 4rem; text-align:center; background: #241D17;">
+    <p class="label">Lo que preparamos</p>
+    <h1>Nuestro Menú</h1>
+    <p class="lead" style="max-width:500px; margin: 1rem auto 0;">Cada bebida es preparada con precisión, usando granos frescos de origen único.</p>
+  </section>
 
-      <div class="grid-products">
-        <div class="card">
-          <img src="img/espresso.jpg" alt="Espresso" class="card__image" />
-          <div class="card__body">
-            <p class="card__label">Espressos</p>
-            <h3 class="card__title">Espresso de Origen</h3>
-            <p class="card__desc">
-              Blend de Etiopía y Colombia. Notas de frutos rojos y chocolate
-              amargo.
-            </p>
-            <span class="card__price">$1.800</span>
-          </div>
-        </div>
+  <section class="menu-page container">
+    <div class="menu-page__filters">
+      <button class="active" data-filtro="todos">Todos</button>
+      <button data-filtro="espressos">Espressos</button>
+      <button data-filtro="filtrados">Filtrados</button>
+      <button data-filtro="con-leche">Con leche</button>
+      <button data-filtro="frios">Fríos</button>
+    </div>
 
-        <div class="card">
-          <img src="img/espresso.jpg" alt="Americano" class="card__image" />
-          <div class="card__body">
-            <p class="card__label">Espressos</p>
-            <h3 class="card__title">Americano</h3>
-            <p class="card__desc">
-              Espresso largo con agua caliente. Suave y equilibrado.
-            </p>
-            <span class="card__price">$1.600</span>
-          </div>
-        </div>
+    <div class="grid-products" id="grilla">
 
-        <div class="card">
-          <img src="img/pour-over.jpg" alt="Pour Over" class="card__image" />
-          <div class="card__body">
-            <p class="card__label">Filtrados</p>
-            <h3 class="card__title">Pour Over Washed</h3>
-            <p class="card__desc">
-              Proceso lavado de Huila, Colombia. Cítrico, floral y luminoso.
-            </p>
-            <span class="card__price">$2.200</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="img/pour-over.jpg" alt="Aeropress" class="card__image" />
-          <div class="card__body">
-            <p class="card__label">Filtrados</p>
-            <h3 class="card__title">Aeropress</h3>
-            <p class="card__desc">
-              Método de presión. Cuerpo intenso, bajo en acidez.
-            </p>
-            <span class="card__price">$2.000</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="img/latte.jpg" alt="Latte" class="card__image" />
-          <div class="card__body">
-            <p class="card__label">Con leche</p>
-            <h3 class="card__title">Latte de especialidad</h3>
-            <p class="card__desc">
-              Doble espresso con leche oat texturizada al vapor.
-            </p>
-            <span class="card__price">$2.500</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="img/latte.jpg" alt="Cappuccino" class="card__image" />
-          <div class="card__body">
-            <p class="card__label">Con leche</p>
-            <h3 class="card__title">Cappuccino</h3>
-            <p class="card__desc">
-              Espresso, leche texturizada y espuma cremosa en partes iguales.
-            </p>
-            <span class="card__price">$2.300</span>
-          </div>
+      <div class="card" data-categoria="espressos">
+        <img src="img/espresso.jpg" alt="Espresso" class="card__image" />
+        <div class="card__body">
+          <p class="card__label">Espressos</p>
+          <h3 class="card__title">Espresso de Origen</h3>
+          <p class="card__desc">Blend de Etiopía y Colombia. Notas de frutos rojos y chocolate amargo.</p>
+          <span class="card__price">$1.800</span>
         </div>
       </div>
-    </section>
 
-    <footer class="footer">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="index.html" class="navbar__logo">Ori<span>gen</span></a>
-          <p>
-            Specialty coffee en el corazón de Palermo. Abrimos todos los días de
-            8 a 20 hs.
-          </p>
-        </div>
-        <div>
-          <p class="footer__heading">Páginas</p>
-          <ul class="footer__links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="menu.html">Menú</a></li>
-            <li><a href="historia.html">Historia</a></li>
-            <li><a href="contacto.html">Reservas</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer__heading">Contacto</p>
-          <ul class="footer__links">
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">hola@origen.cafe</a></li>
-            <li><a href="#">Thames 1234, CABA</a></li>
-          </ul>
+      <div class="card" data-categoria="espressos">
+        <img src="img/espresso.jpg" alt="Americano" class="card__image" />
+        <div class="card__body">
+          <p class="card__label">Espressos</p>
+          <h3 class="card__title">Americano</h3>
+          <p class="card__desc">Espresso largo con agua caliente. Suave y equilibrado.</p>
+          <span class="card__price">$1.600</span>
         </div>
       </div>
-      <div class="footer__bottom">
-        <p>© 2025 Origen Specialty Coffee</p>
-        <p>Proyecto final — Desarrollo Web</p>
-      </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+      <div class="card" data-categoria="filtrados">
+        <img src="img/pour-over.jpg" alt="Pour Over" class="card__image" />
+        <div class="card__body">
+          <p class="card__label">Filtrados</p>
+          <h3 class="card__title">Pour Over Washed</h3>
+          <p class="card__desc">Proceso lavado de Huila, Colombia. Cítrico, floral y luminoso.</p>
+          <span class="card__price">$2.200</span>
+        </div>
+      </div>
+
+      <div class="card" data-categoria="filtrados">
+        <img src="img/pour-over.jpg" alt="Aeropress" class="card__image" />
+        <div class="card__body">
+          <p class="card__label">Filtrados</p>
+          <h3 class="card__title">Aeropress</h3>
+          <p class="card__desc">Método de presión. Cuerpo intenso, bajo en acidez.</p>
+          <span class="card__price">$2.000</span>
+        </div>
+      </div>
+
+      <div class="card" data-categoria="con-leche">
+        <img src="img/latte.jpg" alt="Latte" class="card__image" />
+        <div class="card__body">
+          <p class="card__label">Con leche</p>
+          <h3 class="card__title">Latte de especialidad</h3>
+          <p class="card__desc">Doble espresso con leche oat texturizada al vapor.</p>
+          <span class="card__price">$2.500</span>
+        </div>
+      </div>
+
+      <div class="card" data-categoria="con-leche">
+        <img src="img/latte.jpg" alt="Cappuccino" class="card__image" />
+        <div class="card__body">
+          <p class="card__label">Con leche</p>
+          <h3 class="card__title">Cappuccino</h3>
+          <p class="card__desc">Espresso, leche texturizada y espuma cremosa en partes iguales.</p>
+          <span class="card__price">$2.300</span>
+        </div>
+      </div>
+
+      <div class="proximamente" id="proximamente">
+        <span class="badge-pronto">Próximamente</span>
+        <h3>Bebidas frías en camino ☕🧊</h3>
+        <p>Estamos trabajando en nuestra línea de cold brew y cafés fríos de temporada.<br>Volvé pronto.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="navbar__logo">Ori<span>gen</span></a>
+        <p>Specialty coffee en el corazón de Palermo. Abrimos todos los días de 8 a 20 hs.</p>
+      </div>
+      <div>
+        <p class="footer__heading">Páginas</p>
+        <ul class="footer__links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="contacto.html">Reservas</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__heading">Contacto</p>
+        <ul class="footer__links">
+          <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+          <li><a href="#">hola@origen.cafe</a></li>
+          <li><a href="#">Thames 1234, CABA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Origen Specialty Coffee</p>
+      <p>Proyecto final — Desarrollo Web</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const botones = document.querySelectorAll('.menu-page__filters button');
+    const cards = document.querySelectorAll('.card[data-categoria]');
+    const proximamente = document.getElementById('proximamente');
+
+    botones.forEach(btn => {
+      btn.addEventListener('click', () => {
+        botones.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filtro = btn.dataset.filtro;
+
+        if (filtro === 'frios') {
+          cards.forEach(card => card.classList.add('oculta'));
+          proximamente.classList.add('visible');
+          return;
+        }
+
+        proximamente.classList.remove('visible');
+
+        cards.forEach(card => {
+          if (filtro === 'todos' || card.dataset.categoria === filtro) {
+            card.classList.remove('oculta');
+          } else {
+            card.classList.add('oculta');
+          }
+        });
+      });
+    });
+  </script>
+</body>
 </html>
